@@ -1,0 +1,14 @@
+# Lint com as regras de segurança do Bandit (grupo S)
+target-version = "py312"
+line-length = 120
+
+[lint]
+select = ["E", "W", "F", "I", "B", "SIM", "UP", "S"]
+ignore = ["E501", "S311"] # linha longa de dado, e random que só gera dado sintético
+
+[lint.per-file-ignores]
+"tests/*" = ["S101", "S608"]
+"app/validacao.py" = ["SIM905"]
+
+[lint.isort]
+known-first-party = ["app", "banco", "dashboard", "estilo", "conftest"]
